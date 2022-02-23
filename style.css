@@ -1,0 +1,7 @@
+#hidden-par{             /*due modi per rendere invisibile un tag */
+    display: none;       /*diventa invisibile ma occupa lo spazio nella pagina*/
+    visibility: hidden;  /*diventa invisibile e NON occupa nessuno spazio*/
+
+    /* display: block;   /*--> rende i tag di nuovo visibili*/
+    /*visibility: visible; */
+}
