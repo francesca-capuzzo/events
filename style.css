@@ -5,3 +5,19 @@
     /* display: block;   /*--> rende i tag di nuovo visibili*/
     /*visibility: visible; */
 }
+
+
+.mouse-div{
+    height: 300px;
+    width: 300px;
+    background-color: red;
+    display: inline-block;
+}
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}

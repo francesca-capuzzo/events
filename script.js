@@ -73,6 +73,7 @@ function displayPar(event) {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //GLI EVENTI POSSO ESSERE DIVERSI:
 //'click' --> click del mouse
 //'mousedown'
@@ -94,3 +95,97 @@ function changeBackground(event) {
     }
 }
 
+
+
+function onMouseEnter() {
+    console.log("sono entrato");
+}
+
+function onMouseLeave() {
+    console.log("sono uscito");
+}
+
+function onMouseOver() {
+    console.log("sono sopra");
+}
+
+function onMouseMove() {
+    console.log("mi sto muovendo");
+}
+
+function onKeyDown(event) {
+    console.log("tasto premuto" + event.key); 
+}
+
+let selectedKey = "";
+function onKeyDown2(event) {
+    if (event.key !== selectedKey) {
+        console.log("tasto premuto" + event.key);
+        selectedKey = event.key;
+    }
+   
+}
+
+
+
+const div = document.getElementById('mouse-div-2'); //faccio la stessa cosa dell'HTML per il div1 ma lo faccio nel file js per il div 2 
+div.addEventListener('mouseenter', onMouseEnter);
+div.addEventListener('mouseleave', onMouseLeave);
+
+div.addEventListener('mouseover', onMouseOver); //fa la stessa cosa del mouse enter ma lo ri-runna più volte se resto sull'oggetto
+
+div.addEventListener('mousemove', onMouseMove); //fa la stessa cosa del mouse enter ma lo ri-runna mille volte se mi muovo sull'oggetto
+
+document.addEventListener('keydown', onKeyDown) //printa il tasto che viene premuto (grazie a event.key) e se lo tengo premuto continua a loggare (con solo la funzione onKeyDown)
+document.addEventListener('keydown', onKeyDown2); //printa il tasto che viene premuto (grazie a event.key) e se lo tengo premuto NON continua a loggare (con la funzione onKeyDown2) perchè metto la flag "selectedKey"
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//EVENT TRIGGERS:
+//setTimeout
+//setInterval
+
+setTimeout(() => {
+    console.log("pippo");
+}, 10000);                  //logga pippo nella console dopo 10 secondi che viene refreshata --> i secondi sono scritti sempre in millisecondi (3 zeri in più) --> e POI SI INTERROMPE
+
+
+setInterval(() => {
+    console.log("pluto");  
+}, 1000);                   //logga pluto nella console dopo 1 secondo che viene refreshata --> CONTINUA A FARLO OGNI SECONDO 
+
+
+
+let intervalCounter = 0;
+
+const interval = setInterval(() => {
+    console.log(intervalCounter);
+    intervalCounter++;
+}, 1000);                  //logga il counter nella console ogni 1 secondo e lo aumenta di 1 ogni secondo --> CONTINUA A FARLO
+
+
+let intervalCounter2 = 0;
+
+const interval2 = setInterval(() => {
+    console.log(intervalCounter2);
+    if (intervalCounter2 === 10) {
+        clearInterval(interval2)
+    }
+    intervalCounter++;
+}, 1000);                 //logga il counter nella console ogni (1) secondo e lo aumenta di 1 ogni secondo --> CONTINUA A FARLO finche il counter non arriva a 10
+
+
+
+let searchTimeOut;
+
+function realTimeSearch(event) {
+    if (searchTimeOut) {
+        clearTimeout(searchTimeOut)
+    }
+    searchTimeOut = setTimeout(() => {
+        console.log("sto cercando");
+    }, 1000);             //si utilizza nelle ricerche quando l'utente smette di scrivere per più di 1 secondo --> con il clearTimeOut se l'utente inizia a scrivere il searchTimeOut viene azzerato ogni volta.
+}
+
+document.addEventListener('keydown', realTimeSearch);

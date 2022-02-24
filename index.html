@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- <button onclick="buttonClick(this)" id="button1">Bottone1</button> -->        <!--passando il this nel paramentro della funzione, mi restituisce il tag HTML associato a quel bottone-->
@@ -28,6 +29,10 @@
     <p style="display: none;" id="hidden-par">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et minus repellendus ullam consequatur at laborum reiciendis deleniti enim iure cum eveniet est maxime rem nesciunt inventore illum veniam, omnis eos.
     </p>
+
+    <div onmouseenter="onMouseEnter()" onmouseleave="onMouseLeave()" class="mouse-div red" id="mouse-div-1"></div>
+    <div class="mouse-div green" id="mouse-div-2"></div>
+
 </body>
 <script src="./script.js"></script>
 </html>
